@@ -1,2 +1,2 @@
 # Livelox Map-grabber
-Easily download mad-images and world-file from Livelox.
+Chrome extension for easily downloading map-images and world-files from Livelox.
