@@ -1,0 +1,23 @@
+{
+  "name": "network-request-monitor",
+  "version": "1.0.0",
+  "description": "Chrome extension that captures and monitors network requests from web pages",
+  "main": "background.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "echo \"Add ESLint configuration for linting\"",
+    "build": "echo \"Extension is ready to load in Chrome\"",
+    "dev": "echo \"Load extension in Chrome://extensions in developer mode\""
+  },
+  "keywords": [
+    "chrome-extension",
+    "network",
+    "monitoring",
+    "devtools",
+    "web-requests"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {}
+}

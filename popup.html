@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline';">
+    <style>
+        body {
+            width: 550px;
+            height: 600px;
+            margin: 0;
+            padding: 15px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 13px;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ddd;
+        }
+        
+        h2 {
+            margin: 0;
+            color: #333;
+        }
+        
+        .status {
+            color: #666;
+            font-size: 12px;
+        }
+        
+        .controls {
+            margin-bottom: 15px;
+        }
+        
+        button {
+            padding: 8px 15px;
+            border: 1px solid #ccc;
+            background: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            margin-right: 10px;
+        }
+        
+        button:hover {
+            background: #f0f0f0;
+        }
+        
+        button:disabled {
+            background: #f5f5f5;
+            color: #999;
+            cursor: not-allowed;
+        }
+        
+        .map-list {
+            height: 500px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            background: white;
+        }
+        
+        .map-item {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            background: #fafafa;
+            margin-bottom: 5px;
+        }
+        
+        .map-header {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        
+        .map-meta {
+            color: #666;
+            font-size: 11px;
+            margin-bottom: 10px;
+        }
+        
+        .image-links {
+            margin-top: 10px;
+        }
+        
+        .image-item {
+            display: flex;
+            align-items: center;
+            margin: 3px 0;
+            gap: 10px;
+        }
+        
+        .image-link {
+            flex: 1;
+            color: #2196f3;
+            text-decoration: none;
+            padding: 5px 8px;
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 3px;
+            font-size: 12px;
+            transition: background-color 0.2s;
+        }
+        
+        .image-link:hover {
+            background: #e3f2fd;
+            text-decoration: underline;
+        }
+        
+        .image-info {
+            color: #666;
+            font-size: 10px;
+            margin-left: 5px;
+        }
+        
+        .world-file-btn {
+            padding: 4px 8px;
+            font-size: 10px;
+            background: #4caf50;
+            color: white;
+            border: 1px solid #45a049;
+            border-radius: 3px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        
+        .world-file-btn:hover {
+            background: #45a049;
+        }
+        
+        .no-data {
+            text-align: center;
+            color: #666;
+            padding: 40px 20px;
+            font-style: italic;
+        }
+        
+        .error {
+            color: #f44336;
+            background: #ffebee;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div>
+            <h2>Livelox Map-grabber</h2>
+            <div class="status" id="status">Monitoring for map data...</div>
+        </div>
+    </div>
+    
+    <div class="controls">
+        <button id="refreshBtn">Refresh</button>
+        <button id="clearBtn">Clear All</button>
+    </div>
+    
+    <div class="map-list" id="mapList">
+        <div class="no-data">
+            No map data captured yet.<br>
+            Navigate to a Livelox viewer page to start capturing map images.
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
