@@ -10,14 +10,21 @@ chrome.webRequest.onBeforeRequest.addListener(
         details.url.startsWith('https://livelox.blob.core.windows.net/class-storage/')) {
       
       // Check if the request is from a Livelox viewer tab
-      try {
-        const tab = await chrome.tabs.get(details.tabId);
-        if (tab.url && tab.url.startsWith('https://www.livelox.com/Viewer/')) {
-          // Fetch and parse the response content
-          fetchAndParseMapData(details.url, details.timeStamp);
+      // Ensure tabId is valid (non-negative) before calling tabs.get
+      if (details.tabId >= 0) {
+        try {
+          const tab = await chrome.tabs.get(details.tabId);
+          if (tab.url && tab.url.startsWith('https://www.livelox.com/Viewer/')) {
+            // Fetch and parse the response content
+            fetchAndParseMapData(details.url, details.timeStamp);
+          }
+        } catch (error) {
+          console.error('Error checking tab URL:', error);
         }
-      } catch (error) {
-        console.error('Error checking tab URL:', error);
+      } else {
+        // For requests without a valid tab ID, we can't verify the source
+        // You might want to log this or handle it differently based on your needs
+        console.log('Request without valid tab ID, skipping tab verification:', details.url);
       }
     }
   },

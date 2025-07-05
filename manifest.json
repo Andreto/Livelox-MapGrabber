@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Livelox Map Data Grabber",
   "version": "1.0.0",
-  "description": "Extract map data from Livelox blob storage requests.",
+  "description": "Extract map data from Livelox.",
   "permissions": [
     "webRequest",
     "storage"
